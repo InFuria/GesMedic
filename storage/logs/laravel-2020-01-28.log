@@ -1,0 +1,67 @@
+[2020-01-28 20:24:38] local.ERROR: There are no commands defined in the "help" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"help\" namespace. at /home/vagrant/code/GesMedic/vendor/symfony/console/Application.php:598)
+[stacktrace]
+#0 /home/vagrant/code/GesMedic/vendor/symfony/console/Application.php(651): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/vagrant/code/GesMedic/vendor/symfony/console/Application.php(236): Symfony\\Component\\Console\\Application->find()
+#2 /home/vagrant/code/GesMedic/vendor/symfony/console/Application.php(148): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/vagrant/code/GesMedic/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run()
+#4 /home/vagrant/code/GesMedic/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run()
+#5 /home/vagrant/code/GesMedic/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#6 {main}
+"} 
+[2020-01-28 20:24:47] local.ERROR: Command "make:help" is not defined.
+
+Did you mean one of these?
+    make:auth
+    make:channel
+    make:command
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:help\" is not defined.
+
+Did you mean one of these?
+    make:auth
+    make:channel
+    make:command
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:seeder
+    make:test at /home/vagrant/code/GesMedic/vendor/symfony/console/Application.php:670)
+[stacktrace]
+#0 /home/vagrant/code/GesMedic/vendor/symfony/console/Application.php(236): Symfony\\Component\\Console\\Application->find()
+#1 /home/vagrant/code/GesMedic/vendor/symfony/console/Application.php(148): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/vagrant/code/GesMedic/vendor/laravel/framework/src/Illuminate/Console/Application.php(90): Symfony\\Component\\Console\\Application->run()
+#3 /home/vagrant/code/GesMedic/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(133): Illuminate\\Console\\Application->run()
+#4 /home/vagrant/code/GesMedic/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
