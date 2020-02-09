@@ -13,16 +13,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('country', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
         });
 
-        Schema::create('document_type', function (Blueprint $table) {
+        Schema::create('documents_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
             $table->unsignedInteger('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('country')->onDelete('cascade');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
 
         Schema::create('departments', function (Blueprint $table) {
@@ -41,7 +41,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('type_user', function (Blueprint $table) {
+        Schema::create('users_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug');
             $table->string('description');
@@ -57,13 +57,13 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->boolean('status');
             $table->unsignedInteger('type_id')->unsigned();
-            $table->foreign('type_id')->references('id')->on('type_user')->onDelete('cascade');
+            $table->foreign('type_id')->references('id')->on('users_type')->onDelete('cascade');
             $table->unsignedInteger('branch_id')->unsigned();
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
             $table->unsignedInteger('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('country')->onDelete('cascade');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->unsignedInteger('document_type_id')->unsigned();
-            $table->foreign('document_type_id')->references('id')->on('document_type')->onDelete('cascade');
+            $table->foreign('document_type_id')->references('id')->on('documents_type')->onDelete('cascade');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -79,7 +79,11 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_user');
+        Schema::dropIfExists('countries');
+        Schema::dropIfExists('documents_type');
+        Schema::dropIfExists('departments');
+        Schema::dropIfExists('branches');
+        Schema::dropIfExists('users_type');
         Schema::dropIfExists('users');
     }
 }
