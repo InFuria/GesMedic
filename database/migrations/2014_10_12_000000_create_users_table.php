@@ -70,6 +70,34 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::create('relationships_type', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('description');
+        });
+
+        Schema::create('emergencies_parent', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('ci');
+            $table->string('name');
+            $table->bigInteger('phone');
+            $table->string('address');
+            $table->string('email')->unique();
+
+            $table->unsignedInteger('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+
+            $table->unsignedInteger('document_type_id')->unsigned();
+            $table->foreign('document_type_id')->references('id')->on('documents_type')->onDelete('cascade');
+
+            $table->unsignedInteger('relationship_type_id')->unsigned();
+            $table->foreign('relationship_type_id')->references('id')->on('relationships_type')->onDelete('cascade');
+
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -85,5 +113,7 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('branches');
         Schema::dropIfExists('users_type');
         Schema::dropIfExists('users');
+        Schema::dropIfExists('relationships_type');
+        Schema::dropIfExists('emergencies_parent');
     }
 }
