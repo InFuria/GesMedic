@@ -41,21 +41,30 @@
             vertical-align: middle;
         }
 
+        a{
+            color: black;
+        }
+
+        main {
+            height: 100%;
+        }
+
         @yield('css')
     </style>
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div class="justify-content-between" id="app">
+        <nav class="navbar navbar-expand-md navbar-light shadow" style="background-color: #A9DFBF;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand text-white" href="{{ url('/') }}">
+                    <img src="images/logo1.png" alt="home" height="35" width="auto">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+
+                <button class="btn btn-toolbar text-white" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation" id="collapseBtn">
+                    <span class="fas fa-bars"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse show" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
@@ -97,12 +106,58 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @include('layouts.sidebar')
-            @yield('content')
+        <main class="container-fluid shadow-sm" style="margin-top: -15px">
+            <div class="row">
+                {{--<div class="col-12">
+                    @if(Auth::check())
+                        <div class="col-4 float-right">
+                            @include('layouts.flash')
+                        </div>
+                    @else
+                        <div class="col-4 float-right mt-4">
+                            @include('layouts.flash')
+                        </div>
+                    @endif
+                </div>--}}
+
+                <div class="col-12">
+                    {{--@if(Auth::check())--}}
+                        <div class="row">
+
+                            <div class="col-2 mt-0 p-0">
+                                @include('layouts.sidebar')
+                            </div>
+
+                            <div id="contentBody" class="col-9 pt-4">
+                                @yield('content')
+                            </div>
+                        </div>
+                    {{--@else
+                        <div class="pt-4">
+                            @yield('content')
+                        </div>
+                    @endif--}}
+                </div>
+            </div>
         </main>
     </div>
 
 @yield('js')
+<script>
+    $('#collapseBtn').on('click', function () {
+        if ($('#sidebarCollapse').hasClass('show')){
+            $('#contentBody').removeClass('col-9').addClass('col-12');
+        }else {
+            $('#contentBody').removeClass('col-12').addClass('col-9');
+        }
+    });
+    if(! $('#sidebarCollapse').hasClass('show')){
+        $('#contentBody').removeClass('col-9').addClass('col-12');
+    }
+</script>
+
+<footer class="footer fixed-bottom" id="footer" style="background-color: white; margin-bottom: -15px">
+    <p>&copy; Copyright 2020, Eliana Gimenez. All rights reserved</p>
+</footer>
 </body>
 </html>
