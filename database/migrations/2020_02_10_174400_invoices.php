@@ -36,7 +36,7 @@ class Invoices extends Migration
         Schema::create('invoices_detail', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedBigInteger('invoice_id')->unsigned();
+            $table->unsignedInteger('invoice_id')->unsigned();
             $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
 
             $table->unsignedBigInteger('product_id')->unsigned();
@@ -51,7 +51,7 @@ class Invoices extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedBigInteger('invoice_id')->unsigned();
+            $table->unsignedInteger('invoice_id')->unsigned();
             $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
 
             $table->boolean('status');
@@ -60,9 +60,9 @@ class Invoices extends Migration
         });
 
         Schema::create('sales', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('invoice_id')->unsigned();
+            $table->unsignedInteger('invoice_id')->unsigned();
             $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id')->unsigned();
@@ -70,6 +70,29 @@ class Invoices extends Migration
 
             $table->unsignedInteger('till_id')->unsigned();
             $table->foreign('till_id')->references('id')->on('till')->onDelete('cascade');
+
+        });
+
+
+        Schema::create('till_transactions', function (Blueprint $table) {
+            $table->increments('id');
+
+            $table->unsignedInteger('till_id')->unsigned();
+            $table->foreign('till_id')->references('id')->on('till')->onDelete('cascade');
+
+            $table->unsignedBigInteger('detail_id')->unsigned()->nullable();
+            $table->foreign('detail_id')->references('id')->on('sales')->onDelete('cascade');
+
+            $table->unsignedInteger('transaction_type_id')->unsigned();
+            $table->foreign('transaction_type_id')->references('id')->on('transactions_type')->onDelete('cascade');
+
+            $table->bigInteger('cash_before_op');
+            $table->bigInteger('cash_after_op');
+
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->timestamps();
 
         });
     }
@@ -86,5 +109,6 @@ class Invoices extends Migration
         Schema::dropIfExists('invoices_detail');
         Schema::dropIfExists('orders');
         Schema::dropIfExists('sales');
+        Schema::dropIfExists('till_transactions');
     }
 }
