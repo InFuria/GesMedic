@@ -1,14 +1,14 @@
-<aside class="bg-dark text-dark mr-0 header-nav shadow-lg collapse" id="sidebarCollapse" style="height: auto;">
+<div class="bg-white mr-0 header-nav shadow-sm collapse" id="sidebarCollapse" style="height: auto;">
     <section class="sidebar" style="min-height: 100%">
         <ul class="nav text-white flex-column nav-pills mt-3" id="accordion" role="tablist" aria-orientation="vertical">
 
-            <li class="nav-item text-white header header-title p-2 ">
+            <li class="nav-item header header-title p-2 ">
                 <span>MENU PRINCIPAL</span>
             </li>
 
             <!-- Dashboard -->
-            <li class="nav-item text-white dash">
-                <a class="nav-link text-white" href="{{ route('dashboard.index') }}">
+            <li class="nav-item dash">
+                <a class="nav-link" href="#">
                     <i class="fas fa-tachometer-alt"></i>
 
                     <span class="ml-1">Dashboard</span>
@@ -16,8 +16,8 @@
             </li>
 
             <!-- Cashier -->
-            <li class="nav-item text-white dash">
-                <a class="nav-link text-white" href="#cashierSubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="cashierSubMenu">
+            <li class="nav-item dash">
+                <a class="nav-link" href="#cashierSubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="cashierSubMenu">
                     <i class="fas fa-cash-register"></i>
 
                     <span class="ml-1">Caja</span>
@@ -27,7 +27,7 @@
 
                 <ul class="collapse list-unstyled" id="cashierSubMenu" data-parent="#accordion">
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('till.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-balance-scale"></i>
 
                             <span class="ml-1">Administrar Caja</span>
@@ -35,7 +35,7 @@
                     </li>
 
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('sales.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-hand-holding-usd"></i>
 
                             <span class="ml-1">Registrar Venta</span>
@@ -45,8 +45,8 @@
             </li>
 
             <!-- StockController -->
-            <li class="nav-item text-white">
-                <a class="nav-link text-white" href="#stockSubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="stockSubMenu">
+            <li class="nav-item">
+                <a class="nav-link" href="#stockSubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="stockSubMenu">
                     <i class="fas fa-boxes"></i>
 
                     <span class="ml-1">Stock</span>
@@ -56,7 +56,7 @@
 
                 <ul class="collapse list-unstyled" id="stockSubMenu" data-parent="#accordion">
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('products.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-clipboard-list"></i>
 
                             <span class="ml-1">Lista de Productos</span>
@@ -64,7 +64,7 @@
                     </li>
 
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('stock.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-clipboard-list"></i>
 
                             <span class="ml-1">Listado de Stock</span>
@@ -72,7 +72,7 @@
                     </li>
 
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('stock.charge') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-dolly-flatbed"></i>
 
                             <span class="ml-1">Carga de Stock</span>
@@ -80,7 +80,7 @@
                     </li>
 
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('stock.adjustment') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-wrench"></i>
 
                             <span class="ml-1">Ajuste de Stock</span>
@@ -88,7 +88,7 @@
                     </li>
 
                     <li class="ml-3" hidden>
-                        <a class="nav-link text-white" href="{{ route('stock.audit') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-calculator"></i>
 
                             <span class="ml-1">Arqueo de Productos</span>
@@ -98,8 +98,8 @@
             </li>
 
             <!-- Delivery -->
-            <li class="nav-item text-white" hidden>
-                <a class="nav-link text-white" href="#deliverySubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="deliverySubMenu">
+            <li class="nav-item" hidden>
+                <a class="nav-link" href="#deliverySubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="deliverySubMenu">
                     <i class="fas fa-motorcycle"></i>
 
                     <span class="ml-1">Delivery</span>
@@ -109,7 +109,7 @@
 
                 <ul class="collapse list-unstyled" id="deliverySubMenu" data-parent="#accordion">
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('dashboard.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-clipboard-list"></i>
 
                             <span class="ml-1">Listado de personal delivery</span>
@@ -117,7 +117,7 @@
                     </li>
 
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('dashboard.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-users-cog"></i>
 
                             <span class="ml-1">Administracion de Delivery</span>
@@ -127,8 +127,8 @@
             </li>
 
             <!-- Administration -->
-            <li class="nav-item text-white">
-                <a class="nav-link text-white" href="#admSubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="admSubMenu">
+            <li class="nav-item">
+                <a class="nav-link" href="#admSubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="admSubMenu">
                     <i class="fas fa-users-cog"></i>
 
                     <span class="ml-1">Administracion</span>
@@ -138,7 +138,7 @@
 
                 <ul class="collapse list-unstyled" id="admSubMenu" data-parent="#accordion">
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('expenses.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-file-invoice"></i>
 
                             <span class="ml-1">Gastos</span>
@@ -146,7 +146,7 @@
                     </li>
 
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('users.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-users"></i>
 
                             <span class="ml-1">Usuarios</span>
@@ -154,7 +154,7 @@
                     </li>
 
                     <li class="ml-3">
-                        <a class="nav-link text-white" href="{{ route('roles.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-user-tag"></i>
 
                             <span class="ml-1">Roles</span>
@@ -162,7 +162,7 @@
                     </li>
 
                     <li class="ml-3" hidden>
-                        <a class="nav-link text-white" href="{{ route('permissions.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-tags"></i>
 
                             <span class="ml-1">Permisos</span>
@@ -170,7 +170,7 @@
                     </li>
 
                     <li class="ml-3" hidden>
-                        <a class="nav-link text-white" href="{{ route('dashboard.index') }}">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-ad"></i>
 
                             <span class="ml-1">Publicidad</span>
@@ -180,8 +180,8 @@
             </li>
 
             <!-- Reports -->
-            <li class="nav-item text-white">
-                <a class="nav-link text-white" href="{{ route('reports.index') }}">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
                     <i class="far fa-clipboard"></i>
 
                     <span class="ml-1">Reportes</span>
@@ -189,8 +189,8 @@
             </li>
 
             <!-- Support -->
-            <li class="nav-item text-white dash" hidden>
-                <a class="nav-link text-white" href="{{ route('dashboard.index') }}">
+            <li class="nav-item dash" hidden>
+                <a class="nav-link" href="#">
                     <i class="fas fa-headset"></i>
 
                     <span class="ml-1">Soporte</span>
@@ -198,8 +198,8 @@
             </li>
 
             <!-- Logout -->
-            {{--<li class="nav-item text-white dash">
-                <a class="nav-link text-white" href="{{ route('logout') }}"
+            {{--<li class="nav-item dash">
+                <a class="nav-link" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i>
@@ -214,5 +214,5 @@
 
         </ul>
     </section>
-</aside>
+</div>
 
