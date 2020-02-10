@@ -26,7 +26,7 @@ class Products extends Migration
             $table->string('image');
             $table->bigInteger('price');
 
-            $table->unsignedBigInteger('products_category_id')->unsigned();
+            $table->unsignedInteger('products_category_id')->unsigned();
             $table->foreign('products_category_id')->references('id')->on('products_categories')->onDelete('cascade');
 
             $table->timestamps();
