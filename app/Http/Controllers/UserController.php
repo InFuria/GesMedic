@@ -17,15 +17,11 @@ class UserController extends Controller
     {
         try {
 
-            $users = User::join('type_user', 'users.type_id', '=', 'type_user.id')
+            $users = User::join('users_type', 'users.type_id', '=', 'users_type.id')
                 ->selectRaw("users.id as id, ci, users.name, username, status, type_id, email, description")
                 ->get();
 
-            $types = UserType::all()->pluck('description', 'id')->toArray();
-            $types[0] = 'Todos';
-            ksort($types);
-
-            return view('users.index', compact('users', 'types'));
+            return view('users.index', compact('users'));
 
         } catch (Exception $e){
             Log::error('UsersController::index - ' . $e->getMessage(), ['error_line' => $e->getLine()]);
