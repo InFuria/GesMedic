@@ -17,7 +17,7 @@ class BranchesController extends Controller
         try {
 
             $branches = Branch::join('departments', 'branches.department_id', '=', 'departments.id')
-                ->selectRaw("branches.id as id, code, department_id as department, name, address, phone")
+                ->selectRaw("branches.id as id, code, department_id as department, branches.name as name, address, phone")
                 ->get();
 
 

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Usuarios')
+@section('title', 'Sucursales')
 
 @section('content')
     <div class="container">
         <div class="header">
-            <h4>Sucursal Medica</h4>
+            <h4>Listado de sucursales</h4>
         </div>
 
         <div id="panel" class="mb-1">
@@ -19,8 +19,6 @@
         </div>
     </div>
 @endsection
-
-{{--@include('branches.partials._status_modal')--}}
 
 @include('branches.partials._delete_modal')
 
@@ -65,34 +63,13 @@
             $('#branchesTable_filter label').addClass('input-group d-flex align-items-center').append("<div class=\"input-group-prepend\"><span class=\"input-group-text rounded-right\"><i class=\"fas fa-search\"></i></span></div>");
         } );
 
-
-
-        // $('#statusModal').on('show.bs.modal', function (event) {
-        //     var button  = $(event.relatedTarget); // Button that triggered the modal
-        //     var modal   = $(this);
-        //     var title   = button.attr('title');
-        //     var type    = button.data('type');
-        //     var user  = button.data('id');
-        //     var username  = button.data('username');
-        //     var message = 'Esta seguro que desea ' + type + ' al usuario ' + username + '?';
-        //
-        //     var btnType = type.substring( 0, 1 ).toUpperCase();
-        //     btnType = btnType + type.substring(1);
-        //
-        //     modal.find('.modal-title').text(title);
-        //     modal.find('#modal-message').text(message);
-        //     modal.find('#confirm').text(btnType).addClass(type === 'habilitar' ? 'btn-success' : 'btn-danger');
-        //     modal.find('#statusForm').attr('action', '/users/' + user + '/ban');
-        // });
-
         $('#deleteModal').on('show.bs.modal', function (event) {
             var button  = $(event.relatedTarget); // Button that triggered the modal
             var modal   = $(this);
             var title   = button.attr('title');
-            var type    = button.data('type');
-            var user  = button.data('id');
-            var username  = button.data('username');
-            var message = 'Esta seguro que desea ' + type + ' al usuario ' + username + '?';
+            var branch  = button.data('id');
+            var name  = button.data('name');
+            var message = 'Esta seguro que desea eliminar a la sucursal ' + name + '?';
 
             var btnType = type.substring( 0, 1 ).toUpperCase();
             btnType = btnType + type.substring(1);
@@ -100,7 +77,7 @@
             modal.find('.modal-title').text(title);
             modal.find('#modal-message').text(message);
             modal.find('#confirm').text(btnType);
-            modal.find('#deleteForm').attr('action', '/users/' + user);
+            modal.find('#deleteForm').attr('action', '/branches/' + branch);
         });
     </script>
 @endsection
