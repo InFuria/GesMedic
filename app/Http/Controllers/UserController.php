@@ -21,10 +21,6 @@ class UserController extends Controller
                 ->selectRaw("users.id as id, ci, users.name, username, status, type_id, email, description")
                 ->get();
 
-            $types = UserType::all()->pluck('description', 'id')->toArray();
-            $types[0] = 'Todos';
-            ksort($types);
-
             return view('users.index', compact('users', 'types'));
 
         } catch (Exception $e){
