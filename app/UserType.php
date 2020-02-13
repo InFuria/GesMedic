@@ -2,12 +2,10 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class UserType extends Authenticatable
+class UserType extends Model
 {
-    use Notifiable;
 
     protected $table = 'users_type';
 
@@ -20,21 +18,18 @@ class UserType extends Authenticatable
         'slug', 'description'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    /** Return the id for the type selected */
+    public static function typeID($slug){
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+        $id = UserType::where('slug', $slug)->first()->id;
+
+        return $id;
+    }
+
+    public static function list(){
+
+        $types = UserType::all()->pluck('description', 'id');
+
+        return $types;
+    }
 }

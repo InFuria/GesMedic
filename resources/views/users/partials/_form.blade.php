@@ -1,9 +1,21 @@
 @csrf
 
 <div class="row">
+    <div class="form-group col-5 ml-1">
+        {!! Form::label('country_id', 'Nacionalidad') !!}
+        {!! Form::text('country_id', isset($country) ? $country->name : null, ['class' => 'form-control', 'placeholder' => 'Ingrese la nacionalidad de usuario']) !!}
+    </div>
+
+    <div class="form-group col-3">
+        {!! Form::label('document_type_id', 'Tipo de Documento') !!}
+        {!! Form::select('document_type_id', isset($document_type) ? $document_type : ['description' => '...'], null, ['class' => 'form-control btn-md', 'id' => 'document_type_id']) !!}
+    </div>
+</div>
+
+<div class="row">
     <div class="form-group col-5">
-        {!! Form::label('ci', 'Cedula de Identidad') !!}
-        {!! Form::number('ci', isset($user) ? $user->ci : null, ['class' => 'form-control', 'placeholder' => 'Ingrese el numero de CI del usuario']) !!}
+        {!! Form::label('ci', 'Documento') !!}
+        {!! Form::number('ci', isset($user) ? $user->ci : null, ['class' => 'form-control', 'placeholder' => 'Ingrese el numero de documento/cedula del usuario']) !!}
     </div>
 
     <div class="form-group col-5 ml-1">
@@ -52,6 +64,11 @@
     <div class="form-group col-5">
         {!! Form::label('type_id', 'Tipo de Funcionario') !!}
         {!! Form::select('type_id', isset($types) ? $types : ['description' => '...'], null, ['class' => 'form-control btn-md', 'id' => 'type_id']) !!}
+    </div>
+
+    <div class="form-group col-5">
+        {!! Form::label('branch_id', 'Sucursal') !!}
+        {!! Form::select('branch_id', isset($branch) ? $branch : ['description' => '...'], null, ['class' => 'form-control btn-md', 'id' => 'branch_id']) !!}
     </div>
 </div>
 

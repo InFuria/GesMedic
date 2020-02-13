@@ -37,4 +37,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /** Return all User with the type 'Patient' */
+    public static function patients(){
+
+        $typeID = UserType::typeID('patient');
+
+        $patients = User::whereRaw("type_id = {$typeID}")->get();
+
+        return $patients;
+    }
+
+    public static function staff(){
+
+        /*$admID = UserType::typeID('admin');*/
+        $patientID = UserType::typeID('patient');
+
+        $staff = User::join('users_type', 'users.type_id', '=', 'users_type.id')
+            ->selectRaw("users.id as id, ci, users.name, username, status, type_id, email, description")
+            ->whereRaw("type_id <> {$patientID}")
+            ->get();
+
+        return $staff;
+    }
 }

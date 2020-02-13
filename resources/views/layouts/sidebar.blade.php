@@ -97,35 +97,6 @@
                 </ul>
             </li>
 
-            <!-- Delivery -->
-            <li class="nav-item" hidden>
-                <a class="nav-link" href="#deliverySubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="deliverySubMenu">
-                    <i class="fas fa-motorcycle"></i>
-
-                    <span class="ml-1">Delivery</span>
-
-                    <span class="float-right"><i class="fa fa-angle-left pull-right"></i></span>
-                </a>
-
-                <ul class="collapse list-unstyled" id="deliverySubMenu" data-parent="#accordion">
-                    <li class="ml-3">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-clipboard-list"></i>
-
-                            <span class="ml-1">Listado de personal delivery</span>
-                        </a>
-                    </li>
-
-                    <li class="ml-3">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-users-cog"></i>
-
-                            <span class="ml-1">Administracion de Delivery</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
             <!-- Administration -->
             <li class="nav-item">
                 <a class="nav-link" href="#admSubMenu" data-toggle="collapse" aria-expanded="false" aria-controls="admSubMenu">
@@ -146,7 +117,7 @@
                     </li>
 
                     <li class="ml-3">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('users.index') }}">
                             <i class="fas fa-users"></i>
 
                             <span class="ml-1">Usuarios</span>
@@ -154,7 +125,7 @@
                     </li>
 
                     <li class="ml-3">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('roles.index') }}">
                             <i class="fas fa-user-tag"></i>
 
                             <span class="ml-1">Roles</span>
@@ -162,18 +133,10 @@
                     </li>
 
                     <li class="ml-3" hidden>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('permissions.index') }}">
                             <i class="fas fa-tags"></i>
 
                             <span class="ml-1">Permisos</span>
-                        </a>
-                    </li>
-
-                    <li class="ml-3" hidden>
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-ad"></i>
-
-                            <span class="ml-1">Publicidad</span>
                         </a>
                     </li>
                 </ul>
@@ -198,7 +161,7 @@
             </li>
 
             <!-- Logout -->
-            {{--<li class="nav-item dash">
+            <li class="nav-item dash">
                 <a class="nav-link" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -210,7 +173,7 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
-            </li>--}}
+            </li>
 
         </ul>
     </section>
