@@ -17,10 +17,8 @@ class UserController extends Controller
     {
         try {
 
-            $users = User::join('users_type', 'users.type_id', '=', 'users_type.id')
-                ->selectRaw("users.id as id, ci, users.name, username, status, type_id, email, description")
-                ->get();
-
+            $users = User::staff();
+            
             return view('users.index', compact('users'));
 
         } catch (Exception $e){
@@ -33,7 +31,7 @@ class UserController extends Controller
     public function create()
     {
         try {
-            $types = UserType::all()->pluck('description', 'id');
+            $types = UserType::list();
 
             return view('users.create', compact('types'));
 
@@ -86,7 +84,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         try {
-            $types = UserType::all()->pluck('description', 'id');
+            $types = UserType::list();
 
             return view('users.edit', compact('types', 'user'));
 
