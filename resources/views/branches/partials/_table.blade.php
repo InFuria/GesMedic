@@ -5,6 +5,7 @@
         <th scope="col" style="border: none;">Nombre</th>
         <th scope="col" style="border: none;">Direccion</th>
         <th scope="col" style="border: none;">Telefono</th>
+        <th scope="col" style="border: none;">Departamento</th>
     </tr>
     </thead>
     <tbody class="text-left">
@@ -13,7 +14,8 @@
             <td>{{ $branch->code }}</td>
             <td>{{ $branch->name }}</td>
             <td>{{ $branch->address }}</td>
-            <td>{{ $branch->description }}</td>
+            <td>{{ $branch->phone }}</td>
+            <td>{{ $department [$branch->department_id - 1] }}</td>
 
             <td>
                 <a class="rounded fas fa-eye fa-lg borderless text-black-50" title="Ver detalles de sucursal" href="{{ route('branches.show', ['branches' => $branch->id]) }}"></a>
