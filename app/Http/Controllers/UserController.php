@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Http\Requests\UserRequest;
 use App\User;
 use App\UserType;
