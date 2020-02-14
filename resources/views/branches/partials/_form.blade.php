@@ -10,14 +10,7 @@
 <div class="row">
     <div class="form-group col-5">
         {!! Form::label('department_id', 'Departamento') !!}
-        {!! Form::select('department_id', isset($department) ? $department : ['name' => '...'], null, ['class' => 'form-control btn-md', 'id' => 'department_id']) !!}
-    </div>
-</div>
-
-<div class="row">
-    <div class="form-group col-5">
-        {!! Form::label('name', 'Nombre') !!}
-        {!! Form::text('name', isset($branch) ? $branch->name : null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de sucursal']) !!}
+        {!! Form::select('department_id', isset($departments) ? $departments : ['name' => '...'], null, ['class' => 'form-control btn-md', 'id' => 'department_id']) !!}
     </div>
 
     <div class="form-group col-5 ml-1">
@@ -28,10 +21,13 @@
 
 <div class="row">
     <div class="form-group col-5">
+        {!! Form::label('name', 'Nombre') !!}
+        {!! Form::text('name', isset($branch) ? $branch->name : null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de sucursal']) !!}
+    </div>
+    <div class="form-group col-5">
         {!! Form::label('phone', 'Telefono') !!}
         {!! Form::text('phone', isset($branch) ? $branch->phone : null, ['class' => 'form-control', 'placeholder' => 'Ingrese el telefono del usuario']) !!}
     </div>
-
 </div>
 
 <button type="submit" class="btn btn-success btn-block"><a>{!! $btnLabel !!}</a></button>

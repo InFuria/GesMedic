@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <h4>
-            Creacion de nuevo funcionario
+            Creacion de nuevo usuario
         </h4>
 
         <div class="card">
