@@ -10,6 +10,8 @@ class Department extends Model
         'name'
     ];
 
+    public $timestamps = false;
+
     public static function list(){
 
         $list = Department::all()->pluck('name', 'id');
@@ -22,5 +24,12 @@ class Department extends Model
         $name = Department::where('id', $id)->first()->name;
 
         return $name;
+    }
+
+    public static function getID($name){
+
+        $id = Department::whereRaw("name = '{$name}'")->first()->id;
+
+        return $id;
     }
 }

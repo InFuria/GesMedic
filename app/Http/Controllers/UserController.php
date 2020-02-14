@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Http\Requests\UserRequest;
 use App\User;
 use App\UserType;
@@ -17,11 +18,9 @@ class UserController extends Controller
     {
         try {
 
-            $users = User::join('type_user', 'users.type_id', '=', 'type_user.id')
-                ->selectRaw("users.id as id, ci, users.name, username, status, type_id, email, description")
-                ->get();
-
-            return view('users.index', compact('users', 'types'));
+            $users = User::staff();
+            
+            return view('users.index', compact('users'));
 
         } catch (Exception $e){
             Log::error('UsersController::index - ' . $e->getMessage(), ['error_line' => $e->getLine()]);
@@ -33,7 +32,7 @@ class UserController extends Controller
     public function create()
     {
         try {
-            $types = UserType::all()->pluck('description', 'id');
+            $types = UserType::list();
 
             return view('users.create', compact('types'));
 
@@ -86,7 +85,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         try {
-            $types = UserType::all()->pluck('description', 'id');
+            $types = UserType::list();
 
             return view('users.edit', compact('types', 'user'));
 

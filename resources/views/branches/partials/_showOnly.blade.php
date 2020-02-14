@@ -26,7 +26,7 @@
             <i class="fas fa-city mt-3"></i>
             &nbsp; {{ $departmentName }}
             <br><br>
-            
+
             <a class="rounded far fa-edit fa-lg borderless text-black-50" title="Editar sucursal"
                href="{{ route('branches.edit', ['branches' => $branch->id]) }}"></a>
 
