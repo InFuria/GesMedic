@@ -13,7 +13,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="submit" form="deleteForm" id="confirm" class="btn btn-danger"></button>
+                <button type="submit" form="deleteForm" id="confirm" class="btn btn-danger">Eliminar</button>
                 <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             </div>
         </div>

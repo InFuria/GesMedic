@@ -12,11 +12,22 @@
             <a class="btn btn-md bg-info text-black-50 rounded shadow" href="{{ route('branches.create') }}">Nueva Sucursal</a>
         </div>
 
-        <div class="card mt-3">
-            <div class="card-body">
-                @include('branches.partials._table')
+        @if($branches->count() > 1 || $branches->isEmpty())
+            <div class="card mt-3">
+                <div class="card-body">
+                    @include('branches.partials._table',['department' =>$departments ])
+                </div>
             </div>
-        </div>
+        @elseif($branches->count() == 1)
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    @include('branches.partials._showOnly', ['branch' => $branches->first(), 'departmentName' => $departmentName])
+                </div>
+            </div>
+        @endif
+
+
     </div>
 @endsection
 
@@ -71,12 +82,8 @@
             var name  = button.data('name');
             var message = 'Esta seguro que desea eliminar a la sucursal ' + name + '?';
 
-            var btnType = type.substring( 0, 1 ).toUpperCase();
-            btnType = btnType + type.substring(1);
-
             modal.find('.modal-title').text(title);
             modal.find('#modal-message').text(message);
-            modal.find('#confirm').text(btnType);
             modal.find('#deleteForm').attr('action', '/branches/' + branch);
         });
     </script>
