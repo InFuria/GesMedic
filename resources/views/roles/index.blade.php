@@ -20,7 +20,7 @@
     </div>
 @endsection
 
-{{--@include('roles.partials._delete_modal')--}}
+@include('roles.partials._delete_modal')
 
 @section('js')
     <script>
@@ -63,17 +63,17 @@
             $('#rolesTable_filter label').addClass('input-group d-flex align-items-center').append("<div class=\"input-group-prepend\"><span class=\"input-group-text rounded-right\"><i class=\"fas fa-search\"></i></span></div>");
         } );
 
-        /*$('#deleteModal').on('show.bs.modal', function (event) {
+        $('#deleteModal').on('show.bs.modal', function (event) {
             var button  = $(event.relatedTarget); // Button that triggered the modal
             var modal   = $(this);
             var title   = button.attr('title');
-            var permission  = button.data('id');
+            var role  = button.data('id');
             var name  = button.data('name');
-            var message = 'Esta seguro que desea eliminar ' + 'el permiso "' + name + '"?';
+            var message = 'Esta seguro que desea eliminar el rol "' + name + '"?';
 
             modal.find('.modal-title').text(title);
             modal.find('#modal-message').text(message);
-            modal.find('#deleteForm').attr('action', '/permissions/' + permission);
-        });*/
+            modal.find('#deleteForm').attr('action', '/roles/' + role);
+        });
     </script>
 @endsection

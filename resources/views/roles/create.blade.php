@@ -20,8 +20,11 @@
 
 @section('js')
     <script>
+        let permissionList = $('#permissionsList');
+        permissionList.hide();
+
         $('#permissionBtn').on('click', function () {
-            $('#permissionsList').prepend();
+            permissionList.show();
         });
     </script>
 @append
