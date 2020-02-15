@@ -19,6 +19,15 @@
             <td>{{ $role->created_at }}</td>
             <td>{{ $role->updated_at }}</td>
             <td>
+                @if($role->special == 'all-access')
+                    <label class="btn btn-success rounded btn-sm">Acceso Total</label>
+                @elseif($role->special == 'no-access')
+                    <label class="btn btn-danger rounded btn-sm">Sin acceso</label>
+                @else
+                    <label class="btn btn-info rounded btn-sm">Detallado</label>
+                @endif
+            </td>
+            <td>
                 <a class="rounded fas fa-eye fa-lg borderless text-black-50" title="Ver detalles del rol" href="{{ route('roles.show', ['role' => $role->id]) }}"></a>
                 <a class="rounded far fa-edit fa-lg borderless text-black-50" title="Editar rol" href="{{ route('roles.edit', ['role' => $role->id]) }}"></a>
 

@@ -17,11 +17,11 @@
             <td>{{ $permission->description }}</td>
             <td>{{ $permission->created_at }}</td>
             <td>{{ $permission->updated_at }}</td>
-            <td>
-                <a class="rounded fas fa-eye fa-lg borderless text-black-50" title="Ver detalles del permiso" href="{{ route('permissions.show', ['permission' => $permission->id]) }}"></a>
-                <a class="rounded far fa-edit fa-lg borderless text-black-50" title="Editar permiso" href="{{ route('permissions.edit', ['permission' => $permission->id]) }}"></a>
+            <td class="d-flex justify-content-between" style="border-bottom: none">
+                <a class="rounded fas fa-eye fa-lg text-black-50" title="Ver detalles del permiso" href="{{ route('permissions.show', ['permission' => $permission->id]) }}"></a>
+                <a class="rounded far fa-edit fa-lg text-black-50" title="Editar permiso" href="{{ route('permissions.edit', ['permission' => $permission->id]) }}"></a>
 
-                <a class="rounded fas fa-trash-alt fa-lg borderless text-black-50"
+                <a class="rounded fas fa-trash-alt fa-lg text-black-50"
                    title="Eliminar permiso"
                    data-toggle="modal"
                    data-target="#deleteModal"

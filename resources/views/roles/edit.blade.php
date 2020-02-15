@@ -10,12 +10,29 @@
 
         <div class="card col-11">
             <div class="card-body">
-                {!! Form::model($role, ['route' => ['roles.update', $permission->id], 'method' => 'POST']) !!}
+                {!! Form::model($role, ['route' => ['roles.update', $role->id], 'method' => 'POST']) !!}
                 @method('PATCH')
 
-                @include('roles.partials._form', ['btnLabel' => 'CREAR'])
+                @include('roles.partials._form', ['btnLabel' => 'ACTUALIZAR'])
                 {!! Form::close() !!}
             </div>
         </div>
     </div>
 @endsection
+
+@section('js')
+    <script>
+        let permissionList = $('#permissionsList');
+        let permissionBtn = $('#permissionBtn');
+
+        @if(count($role->permissions) == 0)
+            permissionList.hide();
+        @else
+            permissionBtn.attr('checked', 'checked');
+        @endif
+
+        permissionBtn.on('click', function () {
+            permissionList.show();
+        });
+    </script>
+@append
