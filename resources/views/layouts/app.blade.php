@@ -57,7 +57,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow" style="background-color: #A9DFBF;">
             <div class="container">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
-                    <img src="../../images/logo1.png" alt="home" height="35" width="auto">
+                    <img src="{{ asset('images/logo1.png') }}" alt="home" height="35" width="auto">
                 </a>
 
                 <button class="btn btn-toolbar text-white" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation" id="collapseBtn">

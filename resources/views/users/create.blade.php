@@ -17,3 +17,31 @@
         </div>
     </div>
 @endsection
+
+@section('js')
+    <script>
+        var select_type, $select_type;
+        var select_country, $select_country;
+
+        $select_type = $('#document_type_id').selectize({
+            valueField: 'id',
+            labelField: 'name',
+            searchField: 'name',
+            persist: true,
+            placeholder: 'Seleccione un tipo de documento',
+            options: {!! json_encode($document_type) !!}
+        });
+
+        /*$select_country = $('#country_id').selectize({
+            valueField: 'id',
+            labelField: 'name',
+            searchField: 'name',
+            persist: true,
+            placeholder: 'Seleccione un tipo de documento',
+            options: {{--{!! json_encode($countries) !!}--}}
+        });*/
+
+        select_type = $select_type[0].selectize;
+        /*select_country = $select_country[0].selectize;*/
+    </script>
+@append

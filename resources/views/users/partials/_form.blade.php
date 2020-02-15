@@ -1,14 +1,14 @@
 @csrf
 
 <div class="row">
-    <div class="form-group col-5 ml-1">
+    {{--<div class="form-group col-5 ml-1">
         {!! Form::label('country_id', 'Nacionalidad') !!}
-        {!! Form::text('country_id', isset($country) ? $country->name : null, ['class' => 'form-control', 'placeholder' => 'Ingrese la nacionalidad de usuario']) !!}
-    </div>
+        {!! Form::select('country_id', isset($country) ? $country->name : null, ['class' => 'form-control', 'placeholder' => 'Ingrese la nacionalidad de usuario']) !!}
+    </div>--}}
 
     <div class="form-group col-3">
         {!! Form::label('document_type_id', 'Tipo de Documento') !!}
-        {!! Form::select('document_type_id', isset($document_type) ? $document_type : ['description' => '...'], null, ['class' => 'form-control btn-md', 'id' => 'document_type_id']) !!}
+        {!! Form::select('document_type_id', isset($document_type) ? $document_type : null, ['class' => 'form-control btn-md']) !!}
     </div>
 </div>
 
@@ -71,6 +71,8 @@
         {!! Form::select('branch_id', isset($branch) ? $branch : ['description' => '...'], null, ['class' => 'form-control btn-md', 'id' => 'branch_id']) !!}
     </div>
 </div>
+
+{!! Form::hidden('status', 1) !!}
 
 <button type="submit" class="btn btn-success btn-block"><a>{!! $btnLabel !!}</a></button>
 

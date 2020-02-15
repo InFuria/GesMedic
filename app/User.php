@@ -60,4 +60,8 @@ class User extends Authenticatable
 
         return $staff;
     }
+
+    public function setPassword($value){
+        $this->attributes['password'] = Hash::make($value);
+    }
 }

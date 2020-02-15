@@ -15,14 +15,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
+            $table->string('name');
         });
 
         Schema::create('documents_type', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
-            $table->unsignedInteger('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->string('name');
         });
 
         Schema::create('departments', function (Blueprint $table) {
