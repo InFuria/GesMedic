@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
+            $table->string('name');
         });
 
         Schema::create('documents_type', function (Blueprint $table) {
